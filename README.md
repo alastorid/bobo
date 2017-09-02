@@ -25,7 +25,7 @@ Then find it in language settings.
 
 ## Q1: I cannot type some words, like omf (嗎)
 
-Click the top right language icon and switch to tradictional chinese mode.
+Click the top right language icon and switch to traditional chinese mode.
 
 # Known Issue
 
