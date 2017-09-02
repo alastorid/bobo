@@ -8,7 +8,7 @@ BEGIN_DEFINITION
 LICENSE = BSD 3-Clause License
 UUID = 2ab41714-cc05-4c7b-b576-087182119507
 SERIAL_NUMBER = 20170902
-ICON = ibus-table.svg
+ICON = boshamy.svg
 NAME = liu
 NAME.zh_CN = boshamy
 NAME.zh_HK = boshamy
@@ -17,25 +17,22 @@ DESCRIPTION = a nice IME invented by liu
 LANGUAGES = zh_CN,zh_SG,zh_TW,zh_HK
 AUTHOR = nyanhaha <nyanhaha@icloud.com> 
 STATUS_PROMPT = BO
-VALID_INPUT_CHARS = abcdefghijklmnopqrstuvwxyz
+VALID_INPUT_CHARS = ;,.'abcdefghijklmnopqrstuvwxyz[]
 LAYOUT = us
-MAX_KEY_LENGTH = 4
+MAX_KEY_LENGTH = ５
 
 AUTO_COMMIT = FALSE
 AUTO_SELECT = FALSE
 
-### Use full width punctuation by default
-DEF_FULL_WIDTH_PUNCT = TRUE
-### Not use full width letter by default
+DEF_FULL_WIDTH_PUNCT = FALSE
 DEF_FULL_WIDTH_LETTER = FALSE
 
-USER_CAN_DEFINE_PHRASE = TRUE
+USER_CAN_DEFINE_PHRASE = FALSE
 
-PINYIN_MODE = TRUE
+#PINYIN_MODE = TRUE
+#DYNAMIC_ADJUST = TRUE #TODO 
 
-DYNAMIC_ADJUST = TRUE #TODO 
-
-RULES = ce2:p11+p12+p21+p22;ce3:p11+p21+p22+p31;ca4:p11+p21+p31+p41
+#RULES = ce2:p11+p12+p21+p22;ce3:p11+p21+p22+p31;ca4:p11+p21+p31+p41
 
 END_DEFINITION
 

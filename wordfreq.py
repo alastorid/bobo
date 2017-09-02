@@ -18,10 +18,14 @@ for f in glob.glob("assets/*.txt"):
 print "reading liu.txt ..."
 
 f=open("liu.txt",'r')
+weight=18616
 for l in f:
     x=l.split()
     res=x[0].decode('utf8') # result
     sol=x[1:]               # solution
+    if d.has_key(res):
+        d[res]=d[res]+weight
+    weight=weight-1
     for s in sol:
         if liuDict.has_key(s):
             liuDict[s]=liuDict[s]+[res]
@@ -29,13 +33,19 @@ for l in f:
             liuDict[s]=[res]
 
 f.close()
-
+f=open("output.txt",'w+')
+f.write("BEGIN_TABLE\n")
 for i in liuDict:
     for c in liuDict[i]:
         if d.has_key(c):
-            print "%s %s %d" % (i,c,d[c])
+            s=("%s\t%s\t%d\n" % (i.lower(),c,d[c]+100))
         else:
-            #print "%s %s %d" % (i,c,1)
-            pass
-    
+            s=("%s\t%s\t%d\n" % (i.lower(),c,100))
+        
+        f.write(s.encode('utf8'))
+        pass
+
+f.write("END_TABLE\n\n")
+f.close()
+
 print "done"
