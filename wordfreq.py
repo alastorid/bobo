@@ -18,14 +18,10 @@ for f in glob.glob("assets/*.txt"):
 print "reading liu.txt ..."
 
 f=open("liu.txt",'r')
-weight=18616
 for l in f:
     x=l.split()
     res=x[0].decode('utf8') # result
     sol=x[1:]               # solution
-    if d.has_key(res):
-        d[res]=d[res]+weight
-    weight=weight-1
     for s in sol:
         if liuDict.has_key(s):
             liuDict[s]=liuDict[s]+[res]
