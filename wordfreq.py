@@ -2,7 +2,6 @@
 import glob
 
 d = {}
-liuDict={}
 for f in glob.glob("assets/*.txt"):
     print "processing " + f + " ..."
     fi = open(f, 'r')
@@ -15,6 +14,9 @@ for f in glob.glob("assets/*.txt"):
             d[c]=d[c]+1
     pass
     
+c2b={}
+b2c={}
+
 liuTable=["liu.txt","liu_custom.txt"]
 for lf in liuTable:
     f=open(lf, 'r')
@@ -22,21 +24,37 @@ for lf in liuTable:
         x=l.split()
         res=x[0].decode('utf8') # result
         sol=x[1:]               # solution
+        if c2b.has_key(res):
+            c2b[res]=c2b[res]+sol
+        else:
+            c2b[res]=sol
+        
         for s in sol:
-            if liuDict.has_key(s):
-                liuDict[s]=liuDict[s]+[res]
+            if b2c.has_key(s):
+                b2c[s]=b2c[s]+[res]
             else:
-                liuDict[s]=[res]
+                b2c[s]=[res]
     f.close()
 
 f=open("output.txt",'w+')
 f.write("BEGIN_TABLE\n")
-for i in liuDict:
-    for c in liuDict[i]:
+for b in b2c:
+    offset={}
+    lm=0 # local max value
+    for c in b2c[b]:
         if d.has_key(c):
-            s=("%s\t%s\t%d\n" % (i.lower(),c,d[c]+100))
+            if lm < d[c]:
+                lm=d[c]
+    for c in b2c[b]:
+        offset[c]=0
+        if len(c2b[c])==1 and c2b[c][0]==b:
+            offset[c]=lm+1
+  
+    for c in b2c[b]:
+        if d.has_key(c):
+            s=("%s\t%s\t%d\n" % (b.lower(),c,offset[c]+d[c]+100))
         else:
-            s=("%s\t%s\t%d\n" % (i.lower(),c,100))
+            s=("%s\t%s\t%d\n" % (b.lower(),c,100))
         
         f.write(s.encode('utf8'))
 
