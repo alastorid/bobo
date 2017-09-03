@@ -15,20 +15,20 @@ for f in glob.glob("assets/*.txt"):
             d[c]=d[c]+1
     pass
     
-print "reading liu.txt ..."
+liuTable=["liu.txt","liu_custom.txt"]
+for lf in liuTable:
+    f=open(lf, 'r')
+    for l in f:
+        x=l.split()
+        res=x[0].decode('utf8') # result
+        sol=x[1:]               # solution
+        for s in sol:
+            if liuDict.has_key(s):
+                liuDict[s]=liuDict[s]+[res]
+            else:
+                liuDict[s]=[res]
+    f.close()
 
-f=open("liu.txt",'r')
-for l in f:
-    x=l.split()
-    res=x[0].decode('utf8') # result
-    sol=x[1:]               # solution
-    for s in sol:
-        if liuDict.has_key(s):
-            liuDict[s]=liuDict[s]+[res]
-        else:
-            liuDict[s]=[res]
-
-f.close()
 f=open("output.txt",'w+')
 f.write("BEGIN_TABLE\n")
 for i in liuDict:
@@ -39,7 +39,6 @@ for i in liuDict:
             s=("%s\t%s\t%d\n" % (i.lower(),c,100))
         
         f.write(s.encode('utf8'))
-        pass
 
 f.write("END_TABLE\n\n")
 f.close()
