@@ -25,6 +25,8 @@ Then find it in language settings.
 
 ## Q1: I cannot type some words, like omf (嗎)
 
+The default ibus input mode is simplified chinese mode which will filter out all traditional chinese words. And the filter is just buggy. One quick hack is to patch table.py to skip filter by default. 
+
 ````
 sudo patch -p0 -d/ < patch/table.py.patch
 ibus restart
