@@ -41,21 +41,31 @@ f.write("BEGIN_TABLE\n")
 for b in b2c:
     offset={}
     lm=0 # local max value
+    lm2=0 # local second max value
     for c in b2c[b]:
         if d.has_key(c):
             if lm < d[c]:
+                lm2=lm
                 lm=d[c]
+
     for c in b2c[b]:
         offset[c]=0
+        if not d.has_key(c): # easy fix
+            d[c]=0
+        # if this bcode is the only one of the char            
         if len(c2b[c])==1 and c2b[c][0]==b:
             offset[c]=lm+1
-  
+        # if b + "v" also point to c, means b is not the main bcode for this c
+        if b2c.has_key(b+"V"):
+            for cc in b2c[b+"V"]:
+                if offset.has_key(cc):  # set it to order 2
+                    if lm == d[c]:
+                        offset[cc]= -d[c] + lm2 -1
+                    #else:
+                    #    offset[cc]= -d[c] + lm - 1 #
     for c in b2c[b]:
-        if d.has_key(c):
-            s=("%s\t%s\t%d\n" % (b.lower(),c,offset[c]+d[c]+100))
-        else:
-            s=("%s\t%s\t%d\n" % (b.lower(),c,100))
-        
+        #offset[c]=0
+        s=("%s\t%s\t%d\n" % (b.lower(),c,offset[c]+d[c]+100))
         f.write(s.encode('utf8'))
 
 f.write("END_TABLE\n\n")

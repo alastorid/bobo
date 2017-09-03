@@ -13,10 +13,22 @@ Put your .txt files in assest folder and run make, it will make a IME that optim
 - liu.txt : table it self
 - assets/red_house.txt : a famous chinese novel
 
+# Prerequisite
+
+- ibus
+- ibus-table
+- python
+- patch
+- git
+
 # how to use?
 
 ````
- $ make && sudo make install && make reload
+# install prerequisite first
+sudo yum -y install ibus ibus-table python patch git
+git clone https://github.com/alastorid/bobo.git
+cd bobo
+make && sudo make install && make reload
 ````
 
 Then find it in language settings.
@@ -25,7 +37,7 @@ Then find it in language settings.
 
 ## Q1: I cannot type some words, like omf (嗎)
 
-The default ibus input mode is simplified chinese mode which will filter out all traditional chinese words. And the filter is just buggy. One quick hack is to patch table.py to skip filter by default. 
+The default ibus input mode is simplified chinese mode which will filter out all traditional chinese words. And the filter is just buggy. Patch table.py to skip filter by default. 
 
 ````
 sudo patch -p0 -d/ < patch/table.py.patch
