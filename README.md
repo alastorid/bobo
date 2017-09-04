@@ -35,7 +35,7 @@ Then find it in language settings.
 
 # ToubleShoot
 
-## Q1: I cannot type some words, like omf (嗎)
+## I cannot type some words, like omf (嗎)
 
 The default ibus input mode is simplified chinese mode which will filter out all traditional chinese words. And the filter is just buggy. Patch table.py to skip filter by default. 
 
@@ -48,3 +48,14 @@ ibus restart
 
  - No icon (liu.svg).
  - the novel, red house, is just too old. People don't talk like this in real life.
+
+# Q&A
+
+## Why the first candidate of TOH = 棞 not 面 
+
+because 
+
+    面 = TOH __or TJ__
+    棞 = TOH __only__
+
+So TOH gives 棞 highest priority. If you want to type 面, use TJ instead.
