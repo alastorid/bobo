@@ -55,7 +55,7 @@ ibus restart
 
 because 
 
-    面 = TOH __or TJ__
-    棞 = TOH __only__
+    面 = TOH **or TJ**
+    棞 = TOH **only**
 
 So TOH gives 棞 highest priority. If you want to type 面, use TJ instead.
