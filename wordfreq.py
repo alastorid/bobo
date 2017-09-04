@@ -59,10 +59,10 @@ for b in b2c:
         if b2c.has_key(b+"V"):
             for cc in b2c[b+"V"]:
                 if offset.has_key(cc):  # set it to order 2
-                    if lm == d[c]:
-                        offset[cc]= -d[c] + lm2 -1
-                    #else:
-                    #    offset[cc]= -d[c] + lm - 1 #
+                    if lm == d[cc]:
+                        offset[cc]= -d[cc] + lm2 -1
+                    else:
+                        offset[cc]= -d[cc] + lm - 1 
     for c in b2c[b]:
         #offset[c]=0
         s=("%s\t%s\t%d\n" % (b.lower(),c,offset[c]+d[c]+100))
