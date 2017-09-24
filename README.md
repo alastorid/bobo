@@ -59,3 +59,5 @@ because
     棞 = TOH **only**
 
 So TOH gives 棞 highest priority. If you want to type 面, use TJ instead.
+
+__Update 1: Now you can use TOH for 面 since we virtually never use 棞 in real life  __
