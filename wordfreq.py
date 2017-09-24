@@ -52,8 +52,8 @@ for b in b2c:
         offset[c]=0
         if not d.has_key(c): # easy fix
             d[c]=0
-        # if this bcode is the only one of the char            
-        if len(c2b[c])==1 and c2b[c][0]==b:
+        # if this bcode is the only one of the char AND has been used at least once in the assets             
+        if len(c2b[c])==1 and c2b[c][0]==b and not 0 == d[c]:
             offset[c]=lm+1
         # if b + "v" also point to c, means b is not the main bcode for this c
         if b2c.has_key(b+"V"):
