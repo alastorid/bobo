@@ -1,4 +1,5 @@
-+++ /usr/share/ibus-table/engine/table.py	2017-09-03 09:50:27.210487280 +0800
+--- /home/byzhang/table.py	2017-10-05 15:04:13.804370068 +0800
++++ ./table.py	2017-10-05 14:59:10.135178213 +0800
 @@ -261,6 +261,7 @@
  
      def get_chinese_mode (self):
@@ -7,3 +8,12 @@
          # use db value, if applicable
          __db_chinese_mode = self.db.get_chinese_mode()
          if __db_chinese_mode >= 0:
+@@ -1768,6 +1769,8 @@
+                 else:
+                     if sp_res[1] == u' ':
+                         self.commit_string (cond_letter_translate (u" "))
++                    else:
++                        self.reset ()
+                 if o_py != self._editor._py_mode:
+                     self._refresh_properties ()
+                     self._update_ui ()
