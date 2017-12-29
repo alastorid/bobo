@@ -28,7 +28,9 @@ Put your .txt files in assest folder and run make, it will make a IME that optim
 sudo yum -y install ibus ibus-table python patch git
 git clone https://github.com/alastorid/bobo.git
 cd bobo
-make && sudo make install && make reload
+make && sudo make install
+patch /usr/share/ibus-table/engine/table.py < ./patch/table.py.patch
+ibus restart
 ````
 
 Then find it in language settings.
