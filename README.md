@@ -1,12 +1,7 @@
 # bobo
-OwO
-
-~~I cannot find a complete table online, so I made one and post it here.~~
-
-I cannot find a good boshamy IME for my RHEL box, so I made one and post it here.
-It can adjust the  word order based on the txt file you gave.
-So you can grab some chat logs or some novels to make the word order more practically.
-Put your .txt files in assest folder and run make, it will make a IME that optimized for it.
+A ibus-table-extension that provides boshamy IME.
+And it can be the optimal one for you.
+Put your .txt files in assest folder and run ````make````, it will make a IME that optimized for it.
  
 # file list
 
@@ -62,4 +57,4 @@ because
 
 So TOH gives 棞 highest priority. If you want to type 面, use TJ instead.
 
-__Update 1: Now you can use TOH for 面 since we virtually never use 棞 in real life  __
+__Update 1: Now you can use TOH for 面 since it's hard to find 棞 in real life  __
